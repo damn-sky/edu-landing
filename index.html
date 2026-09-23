@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Запись на открытый урок — демо «Тихая практика»</title>
+  <meta name="description" content="Демо-лендинг онлайн-курса: запись на открытый урок за ноутбуком. Три трека, квиз подбора и заявка. Это не набор в настоящую школу.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://damn-sky.github.io/edu-landing/">
+  <link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="#top">Тихая практика</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Меню</button>
+    <nav id="site-nav">
+      <a href="#tracks">Треки</a>
+      <a href="#quiz">Подбор</a>
+      <a href="#lesson">Урок</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a class="btn btn-small" href="#order">Запись на урок</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <img class="hero-photo" src="img/hero.jpg" width="1600" height="900" alt="Человек на онлайн-уроке за ноутбуком у окна">
+      <div class="hero-copy">
+        <p class="eyebrow">Открытый урок · 45 минут · с ноутбука</p>
+        <h1>Запись на открытый урок «Тихая практика»</h1>
+        <p class="lead">Один урок у окна, без аудитории и без обещания диплома. За 45 минут смотрите, как устроен трек, и решаете, идти ли дальше.</p>
+        <a class="btn" href="#quiz">Подобрать трек</a>
+      </div>
+    </section>
+
+    <section id="tracks">
+      <h2>Три трека, один урок</h2>
+      <p class="section-lead">На уроке разбираем один трек. Остальные не смешиваем в одну программу.</p>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Старт</h3>
+          <p>4 недели. Для тех, кто ещё не вёл свой проект и хочет понять порядок шагов.</p>
+        </article>
+        <article class="card">
+          <h3>Практика</h3>
+          <p>6 недель. Для тех, у кого уже есть черновик и нужна регулярная сдача работ.</p>
+        </article>
+        <article class="card">
+          <h3>Разбор</h3>
+          <p>2 встречи. Для тех, кто приносит готовую работу и хочет замечания по ней.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <h2>Какой трек вам ближе</h2>
+      <form class="quiz" id="quiz-form">
+        <fieldset>
+          <legend>Где вы сейчас</legend>
+          <label><input type="radio" name="level" value="Старт" required> Ещё не начинал</label>
+          <label><input type="radio" name="level" value="Практика"> Есть черновик</label>
+          <label><input type="radio" name="level" value="Разбор"> Работа уже готова</label>
+        </fieldset>
+        <p class="quiz-result" id="quiz-result" hidden>На урок ставим трек <strong id="quiz-track"></strong>. <a href="#order">Перейти к записи</a></p>
+        <button class="btn" type="submit">Показать трек</button>
+      </form>
+    </section>
+
+    <section id="lesson">
+      <h2>Как проходит урок</h2>
+      <ol class="steps">
+        <li><strong>0:00</strong> короткая проверка: какой трек вы отметили</li>
+        <li><strong>0:10</strong> разбор одного примера на экране</li>
+        <li><strong>0:35</strong> что делать после урока, если решите идти в программу</li>
+      </ol>
+    </section>
+
+    <section id="faq">
+      <h2>Вопросы</h2>
+      <details>
+        <summary>Это настоящий набор?</summary>
+        <p>Нет. Демонстрационная страница. Преподаватель не выйдет на связь.</p>
+      </details>
+      <details>
+        <summary>Урок платный?</summary>
+        <p>На этой странице запись бесплатная и никуда не отправляется. Цену программы здесь не указываем.</p>
+      </details>
+      <details>
+        <summary>Нужна ли камера?</summary>
+        <p>Достаточно ноутбука и наушников, как на фото первого экрана. Аудитории нет.</p>
+      </details>
+    </section>
+
+    <section id="order">
+      <h2>Запись на урок</h2>
+      <p class="section-lead">Трек можно поменять. После кнопки заявка остаётся на экране.</p>
+      <form id="lead-form">
+        <label>Имя
+          <input name="name" required minlength="2" autocomplete="name" placeholder="Как к вам обращаться">
+        </label>
+        <label>Телефон
+          <input name="phone" required autocomplete="tel" inputmode="tel" pattern="\+?[0-9\s\-()]{10,18}" placeholder="+7 978 000-00-00">
+        </label>
+        <label>Трек
+          <select name="track" id="track">
+            <option>Старт</option>
+            <option>Практика</option>
+            <option>Разбор</option>
+          </select>
+        </label>
+        <label>Когда удобно
+          <select name="when">
+            <option>Будни, вечер</option>
+            <option>Выходные</option>
+            <option>Пока не знаю</option>
+          </select>
+        </label>
+        <button class="btn" type="submit">Записаться</button>
+      </form>
+      <div id="form-note" class="form-note" role="status" hidden>
+        <p class="form-note-mark">Запись принята</p>
+        <p id="form-note-text"></p>
+        <p class="form-note-hint">Это демо: урока не будет, данные не сохраняются.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <p class="logo">Тихая практика</p>
+      <p>Демо-лендинг ниши «Образование и онлайн-курсы». Это не школа и не набор студентов.</p>
+    </div>
+    <nav aria-label="Подвал">
+      <a href="#tracks">Треки</a>
+      <a href="#quiz">Подбор</a>
+      <a href="#order">Запись</a>
+    </nav>
+    <div>
+      <p>Урок онлайн, 45 минут</p>
+      <p><a href="https://t.me/damn_sky">Telegram @damn_sky</a></p>
+    </div>
+  </footer>
+  <a class="mobile-cta" href="#order">Запись на урок</a>
+  <script src="main.js?v=1"></script>
+</body>
+</html>
