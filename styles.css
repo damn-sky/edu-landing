@@ -49,13 +49,29 @@ a { color: inherit; }
 .btn-small { padding: 8px 14px; font-size: 14px; }
 main { padding: 0 6vw 96px; }
 .hero {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 36px;
-  align-items: center;
-  padding: 48px 0 12px;
+  position: relative;
+  min-height: 640px;
+  margin: 0 -6vw;
+  padding: 72px 6vw 48px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
 }
-.hero-photo { width: 100%; height: 460px; object-fit: cover; border-radius: 28px; }
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+.hero-copy {
+  position: relative;
+  max-width: 680px;
+  padding: 28px;
+  border-radius: 20px;
+  background: rgba(244, 241, 235, 0.9);
+}
 .eyebrow { letter-spacing: 0.06em; text-transform: uppercase; font-size: 12px; color: var(--moss); }
 h1, h2, h3 { font-family: Georgia, serif; font-weight: 500; }
 h1 { font-size: clamp(36px, 4.6vw, 58px); line-height: 1.08; margin: 8px 0 16px; }
@@ -106,6 +122,27 @@ input:not([type="radio"]), select {
 details { border-top: 1px solid var(--line); padding: 14px 0; }
 summary { cursor: pointer; font-size: 18px; }
 details p { color: var(--muted); }
+#order {
+  position: relative;
+  margin: 48px -6vw 0;
+  padding: 56px 6vw;
+  overflow: hidden;
+  border-radius: 0;
+}
+.order-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#order::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(244, 241, 235, 0.82);
+}
+#order > :not(.order-bg) { position: relative; z-index: 1; }
 .form-note { max-width: 460px; padding: 22px; border-radius: 18px; background: var(--moss); color: #f4f1eb; }
 .form-note-mark { margin: 0; font-family: Georgia, serif; font-size: 28px; }
 #form-note-text { margin: 8px 0 0; font-size: 18px; }
@@ -141,7 +178,7 @@ details p { color: var(--muted); }
   .header nav.is-open { display: flex; }
   .header .btn-small { display: none; }
   .hero, .grid-3, .footer { grid-template-columns: 1fr; }
-  .hero-photo { height: 240px; }
+  .hero-photo { height: 100%; }
   .mobile-cta {
     display: block;
     position: fixed;

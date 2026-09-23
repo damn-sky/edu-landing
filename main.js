@@ -10,7 +10,9 @@ const nav = document.querySelector("#site-nav");
 
 quiz.addEventListener("submit", (event) => {
   event.preventDefault();
-  const level = new FormData(quiz).get("level");
+  const data = new FormData(quiz);
+  const score = Number(data.get("now")) + Number(data.get("time")) + Number(data.get("need"));
+  const level = score <= 4 ? "Старт" : score <= 7 ? "Практика" : "Разбор";
   quizTrack.textContent = "«" + level + "»";
   quizResult.hidden = false;
   track.value = level;
