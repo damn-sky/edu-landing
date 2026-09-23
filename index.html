@@ -7,7 +7,7 @@
   <meta name="description" content="Демо-страница записи на один онлайн-урок: выбираете трек, оставляете имя и телефон, видите, из чего состоят 45 минут. Это не настоящая школа.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://damn-sky.github.io/edu-landing/">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
   <header class="header">
@@ -68,13 +68,25 @@
       <h2>Какой трек вам ближе</h2>
       <form class="quiz" id="quiz-form">
         <fieldset>
-          <legend>Где вы сейчас</legend>
-          <label><input type="radio" name="level" value="Старт" required> Ещё не начинал</label>
-          <label><input type="radio" name="level" value="Практика"> Есть черновик</label>
-          <label><input type="radio" name="level" value="Разбор"> Работа уже готова</label>
+          <legend>1. Где вы сейчас</legend>
+          <label><input type="radio" name="now" value="1" required> Ещё не начинал</label>
+          <label><input type="radio" name="now" value="2"> Есть черновик</label>
+          <label><input type="radio" name="now" value="3"> Работа уже готова</label>
         </fieldset>
-        <p class="quiz-result" id="quiz-result" hidden>На урок ставим трек <strong id="quiz-track"></strong>. <a href="#order">Перейти к записи</a></p>
-        <button class="btn" type="submit">Показать трек</button>
+        <fieldset>
+          <legend>2. Сколько времени в неделю</legend>
+          <label><input type="radio" name="time" value="1" required> До двух часов</label>
+          <label><input type="radio" name="time" value="2"> Несколько вечеров</label>
+          <label><input type="radio" name="time" value="3"> Готов сдавать работу каждую неделю</label>
+        </fieldset>
+        <fieldset>
+          <legend>3. Что нужно с урока</legend>
+          <label><input type="radio" name="need" value="1" required> Понять порядок шагов</label>
+          <label><input type="radio" name="need" value="2"> Регулярно сдавать черновик</label>
+          <label><input type="radio" name="need" value="3"> Замечания по готовой работе</label>
+        </fieldset>
+        <p class="quiz-result" id="quiz-result" hidden>По трём ответам вам ближе трек <strong id="quiz-track"></strong>. <a href="#order">Перейти к записи</a></p>
+        <button class="btn" type="submit">Собрать ответ</button>
       </form>
     </section>
 
@@ -123,6 +135,7 @@
     </section>
 
     <section id="order">
+      <img class="order-bg" src="img/order.jpg" alt="">
       <h2>Запись на урок</h2>
       <p class="section-lead">Трек можно поменять. После кнопки заявка остаётся на экране.</p>
       <form id="lead-form">
@@ -172,6 +185,6 @@
     </div>
   </footer>
   <a class="mobile-cta" href="#order">Запись на урок</a>
-  <script src="main.js?v=1"></script>
+  <script src="main.js?v=2"></script>
 </body>
 </html>

@@ -73,9 +73,9 @@ section { padding-top: 72px; }
 .rail li { padding: 20px 18px 0 0; border-right: 1px solid var(--line); }
 .rail li:last-child { border-right: 0; }
 .rail strong { display: block; color: var(--gold); font-size: 28px; font-weight: 500; margin-bottom: 10px; }
-.grid { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.grid { display: grid; gap: 16px; background: transparent; border: 0; }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
-.card { background: var(--panel); padding: 24px; }
+.card { background: transparent; border: 1px solid #efece6; padding: 24px; }
 .quiz, #lead-form { display: grid; gap: 14px; max-width: 420px; }
 fieldset { border: 1px solid var(--line); padding: 8px 16px 12px; margin: 0; }
 legend { padding: 0 6px; color: var(--gold); }
@@ -100,7 +100,21 @@ input:not([type="radio"]), select {
 details { border-top: 1px solid var(--line); padding: 16px 0; }
 summary { cursor: pointer; font-size: 18px; }
 details p { color: var(--muted); }
-.form-note { max-width: 420px; padding: 8px 0 0; }
+#order {
+  position: relative;
+  margin-top: 72px;
+  padding: 48px 32px;
+  overflow: hidden;
+}
+#order .order-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.35);
+}
+#order > :not(.order-bg) { position: relative; }
 .form-note-mark { margin: 0; color: var(--gold); font-size: 32px; letter-spacing: -0.03em; }
 #form-note-text { font-size: 18px; }
 .form-note-hint { color: var(--muted); }
